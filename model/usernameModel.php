@@ -11,9 +11,10 @@ class usernameModel{
     }
 
     public function insert($task, $states, $dates){
-        $stament = $this->PDO->prepare("INSERT INTO username VALUES(:task, :states, :dates)");
-        $stament->bindParam(":task",$task, ":states",$states, ":dates",$states);
+        $stament = $this->PDO->prepare("INSERT INTO username VALUES(:task, :states; :dates)");
+        $stament->bindParam(":task",$task, ":states", $states, ":dates",$dates);
         return($stament->execute()) ? $this->PDO->lastInsertId() : false;
+
 
     }
 }
